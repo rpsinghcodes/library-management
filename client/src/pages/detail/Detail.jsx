@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-
+const ENDPOINT = import.meta.env.VITE_APP_URL;
 const BookDetail = () => {
     const { id } = useParams();
 
@@ -9,7 +9,7 @@ const BookDetail = () => {
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const response = await fetch(`http://localhost:4000/api/books/${id}`);
+                const response = await fetch(`${ENDPOINT}/api/books/${id}`);
                 const data = await response.json();
                 setBook(data);
             } catch (error) {

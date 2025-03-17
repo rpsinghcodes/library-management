@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-
+const ENDPOINT = import.meta.env.VITE_APP_URL;
 export const BooksContext = createContext({
     books: [],
     setBooks: () => {},
@@ -17,7 +17,7 @@ export default function BooksProvider({ children }) {
 
     const addBook = async (book) => {
         try {
-            const response = await fetch("http://localhost:4000/api/books", {
+            const response = await fetch(`${ENDPOINT}/api/books`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -80,7 +80,7 @@ export default function BooksProvider({ children }) {
 
     const getBooks = async () => {
         try {
-            const response = await fetch("http://localhost:4000/api/books", {
+            const response = await fetch(`${ENDPOINT}/api/books`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

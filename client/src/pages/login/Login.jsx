@@ -124,37 +124,3 @@ const LoginForm = () => {
 
 export default LoginForm;
 
-
-
-// export default function Login() {
-//     const {user, login} = useContext(AuthContext);
-//     const navigate = useNavigate();
-  
-//     const [credentials, setCredentials] = useState({
-//         email: '',
-//         password: ''
-//     });
-
-//     console.log(user);
-//     if(user.isLogedIn) {
-//         return navigate("/dashboard");
-//     }
-
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-//         console.log(credentials);
-    
-//         login(credentials.email, credentials.password);
-//     };
-    
-
-//     return (
-//         <div>
-//             <p>email</p>
-//             <input type="text" name="email" placeholder="Enter your email" value={credentials.email} onChange={(e) => setCredentials({...credentials, email: e.target.value})}/>
-//             <p>password</p>
-//             <input type="password" name="password" placeholder="Enter your password" value={credentials.password} onChange={(e) => setCredentials({...credentials, password: e.target.value})}/>
-//             <button onClick={handleSubmit}>Login</button>
-//         </div>
-//     )
-// }

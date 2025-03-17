@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
-
+const ENDPOINT = import.meta.env.VITE_APP_URL;
+console.log('endpoint: ', ENDPOINT);
 export const AuthContext = createContext({
     userRegistration: () => {},
     login: () => {},
@@ -22,7 +23,7 @@ export default function AuthProvider({ children }) {
 
     const signup = async (username, email, password, role) => {
         try {
-            const response = await fetch('http://localhost:4000/api/auth/signup', {
+            const response = await fetch(`${ENDPOINT}/api/auth/signup`, { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -71,7 +72,7 @@ export default function AuthProvider({ children }) {
 
     const login =async (email, password) => {
         try {
-            const response = await fetch('http://localhost:4000/api/auth/login', {
+            const response = await fetch(`${ENDPOINT}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
